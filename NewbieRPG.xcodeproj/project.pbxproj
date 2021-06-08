@@ -7,7 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E23943F265D3D4900C001A3 /* Dagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23943E265D3D4900C001A3 /* Dagger.swift */; };
+		2E70AE46266A6AF3008449E6 /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70AE45266A6AF3008449E6 /* Chest.swift */; };
+		2E8B1D10265BF724000E3038 /* Rod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B1D0F265BF724000E3038 /* Rod.swift */; };
+		2E8B1D12265BF756000E3038 /* Bow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B1D11265BF756000E3038 /* Bow.swift */; };
 		2E8FE7D9264BE74C006D6DFF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8FE7D8264BE74C006D6DFF /* main.swift */; };
+		2E978E66265A85D1003D7D83 /* Sword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E978E65265A85D1003D7D83 /* Sword.swift */; };
+		2EAF22E826595B8D0071A57C /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF22E726595B8D0071A57C /* Knight.swift */; };
+		2EAF22EA26595D4C0071A57C /* Mage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF22E926595D4C0071A57C /* Mage.swift */; };
+		2EAF22EC26595D980071A57C /* Hunter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF22EB26595D980071A57C /* Hunter.swift */; };
+		2EAF22EE26595DC30071A57C /* Thief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF22ED26595DC30071A57C /* Thief.swift */; };
+		2EC3444C2653EE2B00CFBA44 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC3444B2653EE2B00CFBA44 /* Character.swift */; };
+		2EC344502653F04100CFBA44 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC3444F2653F04100CFBA44 /* Player.swift */; };
+		2EC344522653F09200CFBA44 /* FightSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC344512653F09200CFBA44 /* FightSystem.swift */; };
+		2ED00D6626580D9800D7E10E /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED00D6526580D9800D7E10E /* Weapon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +36,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E23943E265D3D4900C001A3 /* Dagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dagger.swift; sourceTree = "<group>"; };
+		2E70AE45266A6AF3008449E6 /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
+		2E8B1D0F265BF724000E3038 /* Rod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rod.swift; sourceTree = "<group>"; };
+		2E8B1D11265BF756000E3038 /* Bow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bow.swift; sourceTree = "<group>"; };
 		2E8FE7D5264BE74C006D6DFF /* NewbieRPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NewbieRPG; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E8FE7D8264BE74C006D6DFF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2E8FE7D8264BE74C006D6DFF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = main.swift; path = NewbieRPG/main.swift; sourceTree = SOURCE_ROOT; usesTabs = 0; };
+		2E978E65265A85D1003D7D83 /* Sword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
+		2EAF22E726595B8D0071A57C /* Knight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
+		2EAF22E926595D4C0071A57C /* Mage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mage.swift; sourceTree = "<group>"; };
+		2EAF22EB26595D980071A57C /* Hunter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hunter.swift; sourceTree = "<group>"; };
+		2EAF22ED26595DC30071A57C /* Thief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thief.swift; sourceTree = "<group>"; };
+		2EC3444B2653EE2B00CFBA44 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		2EC3444F2653F04100CFBA44 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2EC344512653F09200CFBA44 /* FightSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightSystem.swift; sourceTree = "<group>"; };
+		2ED00D6526580D9800D7E10E /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +64,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E14C7B6265E809B000A446F /* Weapon */ = {
+			isa = PBXGroup;
+			children = (
+				2ED00D6526580D9800D7E10E /* Weapon.swift */,
+				2E978E65265A85D1003D7D83 /* Sword.swift */,
+				2E23943E265D3D4900C001A3 /* Dagger.swift */,
+				2E8B1D0F265BF724000E3038 /* Rod.swift */,
+				2E8B1D11265BF756000E3038 /* Bow.swift */,
+				2E70AE44266A6A90008449E6 /* Chest */,
+			);
+			path = Weapon;
+			sourceTree = "<group>";
+		};
+		2E14C7B8265E80CE000A446F /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				2EC3444B2653EE2B00CFBA44 /* Character.swift */,
+				2EAF22E726595B8D0071A57C /* Knight.swift */,
+				2EAF22ED26595DC30071A57C /* Thief.swift */,
+				2EAF22E926595D4C0071A57C /* Mage.swift */,
+				2EAF22EB26595D980071A57C /* Hunter.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		2E70AE44266A6A90008449E6 /* Chest */ = {
+			isa = PBXGroup;
+			children = (
+				2E70AE45266A6AF3008449E6 /* Chest.swift */,
+			);
+			path = Chest;
+			sourceTree = "<group>";
+		};
 		2E8FE7CC264BE74C006D6DFF = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +117,28 @@
 			isa = PBXGroup;
 			children = (
 				2E8FE7D8264BE74C006D6DFF /* main.swift */,
+				2E9D8C962655434100EEB53B /* Model */,
+				2E9D8C952655432F00EEB53B /* System */,
 			);
 			path = NewbieRPG;
+			sourceTree = "<group>";
+		};
+		2E9D8C952655432F00EEB53B /* System */ = {
+			isa = PBXGroup;
+			children = (
+				2EC344512653F09200CFBA44 /* FightSystem.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		2E9D8C962655434100EEB53B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EC3444F2653F04100CFBA44 /* Player.swift */,
+				2E14C7B8265E80CE000A446F /* Character */,
+				2E14C7B6265E809B000A446F /* Weapon */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +198,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EAF22EA26595D4C0071A57C /* Mage.swift in Sources */,
+				2E23943F265D3D4900C001A3 /* Dagger.swift in Sources */,
+				2E8B1D10265BF724000E3038 /* Rod.swift in Sources */,
+				2EC344502653F04100CFBA44 /* Player.swift in Sources */,
+				2ED00D6626580D9800D7E10E /* Weapon.swift in Sources */,
+				2E70AE46266A6AF3008449E6 /* Chest.swift in Sources */,
+				2E978E66265A85D1003D7D83 /* Sword.swift in Sources */,
+				2EAF22EC26595D980071A57C /* Hunter.swift in Sources */,
+				2EAF22E826595B8D0071A57C /* Knight.swift in Sources */,
+				2E8B1D12265BF756000E3038 /* Bow.swift in Sources */,
+				2EAF22EE26595DC30071A57C /* Thief.swift in Sources */,
 				2E8FE7D9264BE74C006D6DFF /* main.swift in Sources */,
+				2EC3444C2653EE2B00CFBA44 /* Character.swift in Sources */,
+				2EC344522653F09200CFBA44 /* FightSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
