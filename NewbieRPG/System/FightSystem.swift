@@ -7,17 +7,20 @@
 
 import Foundation
 
-class FightSystem {
+public class FightSystem {
     
-    let maxPlayer = 99
-    let maxTurn = 99
-    var curTurn = 0
+    private let maxPlayer = 99
+    private let maxTurn = 99
+    private var curTurn = 0
     var currentPlayer = 0
     var players = [Player]()
-    var deadPlayers: [Player] = [Player]()
+    private var deadPlayers: [Player] = [Player]()
+    private var isGameOver:Bool {
+        players.count == 1
+    }
     
     
-    func startGame() {
+    public func startGame() {
         print("==========================="
             + "\n   Welcome to NewbieRPG   "
             + "\n===========================")
@@ -26,7 +29,7 @@ class FightSystem {
         gameLoop()
     }
 
-    static func userReadLine(message: String) -> String {
+   public static func userReadLine(message: String) -> String {
         print(message)
         let line = readLine()
         if line == nil {
@@ -36,7 +39,7 @@ class FightSystem {
         }
     }
     
-    static func userReadNumber(message: String) -> Int {
+    private static func userReadNumber(message: String) -> Int {
         while true {
             let number = Int(FightSystem.userReadLine(message: message))
             if number != nil {
@@ -47,7 +50,7 @@ class FightSystem {
         }
     }
     
-    func userReadNumberPlayer(message: String) -> Int {
+   private func userReadNumberPlayer(message: String) -> Int {
         while true {
             let numberMaxPlayer = FightSystem.userReadNumber(message: message)
             if numberMaxPlayer < maxPlayer && numberMaxPlayer > 1{
@@ -59,7 +62,7 @@ class FightSystem {
         }
     }
     
-    func initPlayers() {
+    private func initPlayers() {
         let numberPlayer = userReadNumberPlayer(message: "\nEnter the number of players")
         print("\n\(numberPlayer) Players will play")
         
@@ -72,10 +75,17 @@ class FightSystem {
         printPlayersBoards()
     }
     
-    func printPlayersBoards() {
+    private func printPlayersBoards() {
         for player in players {
-            print("\n=== " + " Team of player" + player.name + " ===")
+            print("\n=== " + " Team of player " + player.name + " ===")
             player.printCharacters()
+        }
+    }
+    
+    private func printPlayersDeadBoards() {
+        for player in deadPlayers {
+            print("\n=== ☠️ " + " Team of player " + player.name + " ☠️ ===")
+            player.printDeadCharacters()
         }
     }
             // =========    FIGHT MENU      ======= //
@@ -83,20 +93,18 @@ class FightSystem {
 
     // ========== Choose Player and Character system ======== //
     
-    func orderAttack() -> Bool{
+    private func orderAttack() -> Bool{
         print("\nChoose the target player")
         let attackedPlayer = playerChooseTargetPlayer()
         print("\nChoose the character to attack")
         let attackingCharacter = playerChooseTargetCharacter(player: players[currentPlayer])
         print("\nChoose a character to attack")
         let attackedCharacter = playerChooseTargetCharacter(player: attackedPlayer)
-        
         print(players[currentPlayer].name + ":" +  players[currentPlayer].characters.count.description + " vs " + attackedPlayer.name + ":" + attackedPlayer.characters.count.description)
         print("\n" + attackingCharacter.description + "\n== vs ==\n" + attackedCharacter.description)
-        
         let totalDamage = attackingCharacter.attack + attackingCharacter.weapon.damage
-        let playerIsDead = attackedPlayer.receiveAttack(damage: totalDamage, target: attackedCharacter)
-        if playerIsDead {
+        attackedPlayer.receiveAttack(damage: totalDamage, target: attackedCharacter)
+        if attackedPlayer.isAlive {
             killedPlayer(target: attackedPlayer)
             print("\nThe player " + attackedPlayer.name + " lost ")
             return true
@@ -105,7 +113,7 @@ class FightSystem {
         }
     }
     
-    func playerChooseTargetPlayer() -> Player {
+    private func playerChooseTargetPlayer() -> Player {
         for index in 0...players.count-1{
             if index != currentPlayer {
                 print(index.description + ")" + players[index].name)
@@ -121,7 +129,7 @@ class FightSystem {
         }
     }
     
-    func playerChooseTargetCharacter(player: Player) -> Character {
+    private func playerChooseTargetCharacter(player: Player) -> Character {
         for index in 0...player.characters.count-1{
             print(index.description + ")" + player.characters[index].name)
         }
@@ -136,7 +144,7 @@ class FightSystem {
     }
      
     
-    func findPlayer(name: String) -> Int {
+    private func findPlayer(name: String) -> Int {
         for index in 0...players.count-1 {
             if name == players[index].name{
                 return index
@@ -145,12 +153,12 @@ class FightSystem {
         return -1
     }
     
-    func killedPlayer(target: Player){
+    private func killedPlayer(target: Player) {
             deadPlayers.append(target)
             players.remove(at: findPlayer(name: target.name))
     }
     
-    func battleReadLine() -> String {
+    private func battleReadLine() -> String {
         if let line = readLine(){
             return line
         } else {
@@ -161,18 +169,16 @@ class FightSystem {
     // ====== System Turn and Gameover ======= //
     
     // menu dira true si un joueur meurs 
-    func menu() -> Bool{
+    private func menu() -> Bool{
         while true {
             print("\nBattle System"
                     + "\n1. Attack"
                     + "\n2. Search chest")
- //                   + "\n3. Scan")
             let action = battleReadLine()
             
             switch action {
             case "1": return orderAttack()
             case "2": return Chest.chest(system: self)
-  //          case "3": return orderAttack()
             default:
                 print("choose a correct number")
             }
@@ -182,18 +188,18 @@ class FightSystem {
     
     // turn rappel true des qu'un player meurt
     
-    func turn(player: Player) -> Bool{
+    private func turn(player: Player) -> Bool{
         print("\nTurn " + "\(curTurn)")
         print("Player turn to play : \(players[currentPlayer].name)")
         return menu()
     }
     
-    func nextPlayer() {
+    private func nextPlayer() {
         currentPlayer += 1
         currentPlayer %= players.count
     }
     
-    func isTimeOut() -> Bool {
+    private func isTimeOut() -> Bool {
         if curTurn + 1 > maxTurn {
             print ("\nTime out")
             return true
@@ -203,21 +209,16 @@ class FightSystem {
         }
     }
     
-    func isGameOver() -> Bool {
-        if players.count == 1 {
-            print("\nGame is over")
-            return true
-        } else {
-            return false
-        }
-    }
-    
-   func gameLoop() {
+   private func gameLoop() {
         while !isTimeOut() {
             curTurn += 1
             if turn(player: players[currentPlayer]) {
-                if isGameOver() {
+                if isGameOver {
+                    print("\n=== Game Over ===")
+                    print("\nTotal Turn " + "\(curTurn)" )
                     print("\nThe winner is the player " + players[currentPlayer].name)
+                    print(printPlayersBoards())
+                    print(printPlayersDeadBoards())
                     return
                 }
             }

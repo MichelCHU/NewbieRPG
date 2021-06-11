@@ -7,24 +7,27 @@
 
 import Foundation
 
-class Player {
+public class Player {
 
-    static let maxCharacters = 3
+    static let maxCharacters = 2
     var name: String = ""
     var characters: [Character] = [Character]()
     static var uniqueNames: [String] = [String]()
     var deadCharacters: [Character] = [Character]()
+    var isAlive: Bool {
+        deadCharacters.count == Player.maxCharacters
+    }
     
-    init() {
+    public init() {
         name = uniqueName(message: "\nEnter your player name")
         chooseTeam()
     }
     
-    func alreadyNameExist(name: String) -> Bool {
+    private func alreadyNameExist(name: String) -> Bool {
         return Player.uniqueNames.contains(name)
     }
     
-    func uniqueName(message: String) -> String {
+    private func uniqueName(message: String) -> String {
         var name: String
         while true {
             name = FightSystem.userReadLine(message: message)
@@ -37,7 +40,7 @@ class Player {
         }
     }
     
-    func chooseTeam() {
+    private func chooseTeam() {
         print("\n=== Now " + name + " choose your team ===")
         for _ in 0...Player.maxCharacters-1 {
             characters.append(chooseCharacter())
@@ -45,7 +48,7 @@ class Player {
         printCharacters()
     }
 
-    func chooseCharacter() -> Character {
+    private func chooseCharacter() -> Character {
         while (true) {
             print("\nChoose your character")
             Character.printAllCharacterTypes()
@@ -73,33 +76,30 @@ class Player {
         }
     }
  
-    func printCharacters() {
+     func printCharacters() {
         for index in 0...characters.count-1 {
             print ("\n \(index)) \(characters[index].description)")
         }
     }
 
-    
+    func printDeadCharacters() {
+        for index in 0...deadCharacters.count-1 {
+            print ("\n \(index)) \(deadCharacters[index].description)")
+        }
+    }
     //============  SYSTEM FIGHT MENU ==================//
 
 
-    func receiveAttack(damage: Int, target: Character) -> Bool {
+    func receiveAttack(damage: Int, target: Character) {
         if target.receiveDamage(damage: damage) {
             deadCharacters.append(target)
             characters.remove(at: find(name: target.name))
-            return hasAliveTeam()
-        } else {
-            return false
         }
-    }
-    
-    func hasAliveTeam() -> Bool {
-        return deadCharacters.count == Player.maxCharacters
     }
     
     // Trouvez qui meurs et mettre le nom dans la dead character //
     
-    func find(name: String) -> Int {
+    private func find(name: String) -> Int {
         for index in 0...characters.count-1{
             if name == characters[index].name {
                 return index

@@ -7,32 +7,34 @@
 
 import Foundation
 
-class Chest {
+public class Chest {
     
-    static func chest(system: FightSystem) -> Bool{
+
+    internal static func chest(system: FightSystem) -> Bool{
+
+        print("\nyou found a chest")        
         let dice:Int = Int.random(in: 0...1)
-        print("\nyou found a chest")
         switch dice {
         case 0:
             chestWeapon(system: system)
         case 1:
-            chestItem(system: system)
+            chestItem()
         default:
             print("error")
         }
         return false
     }
     
-    static func chestWeapon(system: FightSystem) {
+    private static func chestWeapon(system: FightSystem) {
         let randomWeapon:Weapon = Weapon()
         let currentPlayer:Player = system.players[system.currentPlayer]
-        let selectedCharacter = currentPlayer.characters[Int.random(in: 0...currentPlayer.characters.count-1)]
+        let selectedCharacter = currentPlayer.characters[currentPlayer.characters.count-1]
             selectedCharacter.weapon = randomWeapon
-        print("\nThe chest contains: " + randomWeapon.weaponName + ":" + randomWeapon.damage.description + " ATK")
+        print("\nThe chest contains: " + randomWeapon.weaponName + " : " + randomWeapon.damage.description + " ATK")
         print("You gave it to " + selectedCharacter.name)
     }
     
-   static func chestItem(system: FightSystem) {
+    private static func chestItem() {
         print("\nYou found a broken potion")
         print("Turn skipped")
     }

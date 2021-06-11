@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Dagger: Weapon {    
+public class Dagger: Weapon {    
     override init() {
-        super.init(damage: 20, weaponName: "Dagger : ")
+        super.init(damage: 20, weaponName: "Dagger")
     }
 }

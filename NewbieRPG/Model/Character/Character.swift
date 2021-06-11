@@ -7,14 +7,13 @@
 
 import Foundation
 
-class Character {
+public class Character {
     
-    var type:CharacterType
-    var name:String
-    var health:Int
-    var attack:Int
+    private var type:CharacterType
+    public var name:String
+    private var health:Int
+    public var attack:Int
     var weapon:Weapon
-    var isAlive: Bool = true
     
     enum CharacterType : Int, CustomStringConvertible, CaseIterable {
         case Knight = 1, Thief = 2, Mage = 3, Hunter = 4
@@ -29,7 +28,7 @@ class Character {
         }
     }
     
-    static func intToType(chiffre: Int) -> CharacterType {
+    private static func intToType(chiffre: Int) -> CharacterType {
         let optionel = CharacterType.init(rawValue: chiffre)
         if optionel != nil {
             return CharacterType.init(rawValue: chiffre)!
@@ -48,18 +47,18 @@ class Character {
         self.weapon = weapon
     }
 
-    var description: String {
+    public var description: String {
         return type.description + "(Name: " + self.name + "  HP: ❤︎ " + self.health.description + "  ATK: ⚒︎ " + self.attack.description + self.weapon.description + ")"
     }
     
-    static func printAllCharacterTypes() {
+    public static func printAllCharacterTypes() {
         let size = CharacterType.allCases.count
         for index in 1...size {
                 print ("\(index)) \(intToType(chiffre: index))")
         }
     }
     
-    func receiveDamage(damage: Int) -> Bool {
+    public func receiveDamage(damage: Int) -> Bool {
         print("\nThe character " + self.name + " lost " + "\(damage) Hp")
         health -= damage
         if health <= 0{

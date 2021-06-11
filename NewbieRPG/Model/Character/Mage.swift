@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Mage: Character {
+public class Mage: Character {
     init(name: String) {
         super.init(type: .Mage, name: name, health: 120, attack: 20, weapon: Rod())
     }

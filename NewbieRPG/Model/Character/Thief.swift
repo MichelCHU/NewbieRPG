@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Thief: Character {
+public class Thief: Character {
     init(name: String) {
         super.init(type: .Thief, name: name, health: 180, attack: 35, weapon: Dagger())
     }

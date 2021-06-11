@@ -8,10 +8,10 @@
 import Foundation
 
 
-class Weapon {
+public class Weapon {
     var damage: Int
     var weaponName: String
-    let uniqueWeaponName: [String] = ["Sword","Dagger","Rod","Bow","Flamberge","Damacus","Staff","Long Bow","Rusty Sword","Rusty Dagger","Rotten Rod","broken Bow"]
+    private let uniqueWeaponName: [String] = ["Sword","Dagger","Rod","Bow","Flamberge","Damacus","Staff","Long Bow","Rusty Sword","Rusty Dagger","Rotten Rod","broken Bow"]
     
     init(damage: Int, weaponName: String) {
         self.damage = damage
@@ -24,7 +24,7 @@ class Weapon {
     }
     
     var description: String {
-        return "(Weapon equiped " + weaponName + damage.description + " ATK "  + ")"
+        return "(Weapon equiped " + weaponName + " : " + damage.description + " ATK "  + ")"
     }
 }
 
